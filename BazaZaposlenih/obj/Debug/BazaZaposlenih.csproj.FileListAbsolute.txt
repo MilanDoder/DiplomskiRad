@@ -1,0 +1,7 @@
+C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\BazaZaposlenih\bin\Debug\BazaZaposlenih.dll
+C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\BazaZaposlenih\bin\Debug\BazaZaposlenih.pdb
+C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\BazaZaposlenih\bin\Debug\Klasa.dll
+C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\BazaZaposlenih\bin\Debug\Klasa.pdb
+C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\BazaZaposlenih\obj\Debug\BazaZaposlenih.csprojResolveAssemblyReference.cache
+C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\BazaZaposlenih\obj\Debug\BazaZaposlenih.dll
+C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\BazaZaposlenih\obj\Debug\BazaZaposlenih.pdb

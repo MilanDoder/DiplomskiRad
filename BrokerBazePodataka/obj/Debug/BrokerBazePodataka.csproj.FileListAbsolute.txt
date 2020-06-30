@@ -1,0 +1,7 @@
+C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\BrokerBazePodataka\bin\Debug\BrokerBazePodataka.dll
+C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\BrokerBazePodataka\bin\Debug\BrokerBazePodataka.pdb
+C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\BrokerBazePodataka\bin\Debug\Klasa.dll
+C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\BrokerBazePodataka\bin\Debug\Klasa.pdb
+C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\BrokerBazePodataka\obj\Debug\BrokerBazePodataka.csprojResolveAssemblyReference.cache
+C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\BrokerBazePodataka\obj\Debug\BrokerBazePodataka.dll
+C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\BrokerBazePodataka\obj\Debug\BrokerBazePodataka.pdb

@@ -1,0 +1,5 @@
+C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\Klasa\bin\Debug\Klasa.dll
+C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\Klasa\bin\Debug\Klasa.pdb
+C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\Klasa\obj\Debug\Klasa.csprojResolveAssemblyReference.cache
+C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\Klasa\obj\Debug\Klasa.dll
+C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\Klasa\obj\Debug\Klasa.pdb

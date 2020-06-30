@@ -1,0 +1,13 @@
+C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\Kontroler\bin\Debug\Kontroler.dll
+C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\Kontroler\bin\Debug\Kontroler.pdb
+C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\Kontroler\bin\Debug\BrokerBazePodataka.dll
+C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\Kontroler\bin\Debug\Klasa.dll
+C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\Kontroler\bin\Debug\BrokerBazePodataka.pdb
+C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\Kontroler\bin\Debug\Klasa.pdb
+C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\Kontroler\obj\Debug\Kontroler.csprojResolveAssemblyReference.cache
+C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\Kontroler\obj\Debug\Kontroler.dll
+C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\Kontroler\obj\Debug\Kontroler.pdb
+C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\Kontroler\bin\Debug\BazaZaposlenih.dll
+C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\Kontroler\bin\Debug\BazaZaposlenih.pdb
+C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\Kontroler\bin\Debug\SistemskeOperacije.dll
+C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\Kontroler\bin\Debug\SistemskeOperacije.pdb
