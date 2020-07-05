@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BrokerBazePodataka;
+using Klasa;
 
 namespace SistemskeOperacije.Zaposleni
 {
@@ -10,13 +12,24 @@ namespace SistemskeOperacije.Zaposleni
     {
         protected override object IzvrsiKonkrentuSO(object objekat)
         {
+            //Klasa.Zaposleni n = (Klasa.Zaposleni)Broker.Instanca.vratiObjekatSaLoginForme(new Klasa.Zaposleni());
             Klasa.Zaposleni prijava = (Klasa.Zaposleni)objekat;
-            List<Klasa.Zaposleni> lista = new List<Klasa.Zaposleni>();
-            lista = (List<Klasa.Zaposleni>)BazaZaposlenih.Baza.Popuni();
 
-            foreach (Klasa.Zaposleni z in lista)
+
+            
+            List<IDomenskiObjekat> listaDomenskihObjekata =  Broker.Instanca.vratiSve(new Klasa.Zaposleni());
+            List<Klasa.Zaposleni> zaposleni = listaDomenskihObjekata.Cast<Klasa.Zaposleni>().ToList();
+
+            foreach (Klasa.Zaposleni zaposlen in zaposleni)
             {
-                if (z.KorisnickoIme == prijava.KorisnickoIme.Trim() && z.KorisnickaSifra == prijava.KorisnickaSifra.Trim())
+
+                zaposlen.osoba = (Klasa.Osoba)Broker.Instanca.vratiJedan(zaposlen.osoba);
+            }
+
+
+            foreach (Klasa.Zaposleni z in listaDomenskihObjekata)
+            {
+                if (z.KorisnickoIme == prijava.KorisnickoIme.Trim() && z.Sifra == prijava.Sifra.Trim())
                 {
                     return z;
                 }

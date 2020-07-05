@@ -24,11 +24,11 @@ namespace SistemskeOperacije
             catch (Exception ex)
             {
                 Broker.Instanca.ponistiTransakciju();
-                throw new Exception(ex.Message);
             }
             finally {
                 Broker.Instanca.zatvoriKonekciju();
             }
+            return null;
 
         }
 

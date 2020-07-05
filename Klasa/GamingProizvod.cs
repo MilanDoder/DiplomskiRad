@@ -64,7 +64,7 @@ namespace Klasa
 
         public string vratiUslovZaPretragu(string kriterijum)
         {
-            return $"Naziv LIKE '%{kriterijum}%'  OR Model LIKE '%{kriterijum}%'";
+            return $"ProizvodID LIKE '%{kriterijum}%' OR Naziv LIKE '%{kriterijum}%'  OR Model LIKE '%{kriterijum}%'";
         }
 
         public string vratiAtributID()
@@ -119,7 +119,8 @@ namespace Klasa
 
         public string vratiUslovZaPronalazenjeObjekata(string trazeni)
         {
-            return $" ProizvodID = '{trazeni}' OR Naziv LIKE '%{trazeni}%'  OR Model LIKE '%{trazeni}%'";
+            //OR Naziv LIKE '%{trazeni}%'  OR Model LIKE '%{trazeni}%'
+            return $" ProizvodID = '{trazeni}'";
         }
 
         
@@ -150,6 +151,16 @@ namespace Klasa
             }
             return lista;
 
+        }
+
+        public string vratiUslovZaUspesanLogin(string korisnik, string sifra)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string vratiNazivTabele(string kriterijum)
+        {
+            return "Proizvod";
         }
     }
 }

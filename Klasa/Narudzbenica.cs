@@ -15,7 +15,7 @@ namespace Klasa
         public DateTime DatumOd { get; set; }
         public DateTime DatumDo { get; set; }
         public double UkupanIznos { get; set; }
-        public Nalog Korisnik { get; set; }
+        public Clan Korisnik { get; set; }
         public List<StavkaNarudzbenice> stavke { get; set; }
 
 
@@ -27,7 +27,7 @@ namespace Klasa
                 n.DatumOd = Convert.ToDateTime(citac["DatumOd"]);
                 n.SifraNarudzbenice = (int)citac["SifraNarudzbenice"];
                 n.UkupanIznos = Convert.ToInt64(citac["UkupanIznos"]);
-                n.Korisnik = new Nalog {
+                n.Korisnik = new Clan {
                     ClanskiBroj = (int)citac["SifraClana"]
                 };
                 n.stavke = new List<StavkaNarudzbenice>();
@@ -60,7 +60,7 @@ namespace Klasa
                     DatumDo =  (DateTime)komanda["DatumDo"],
                     DatumOd = (DateTime)komanda["DatumOd"],
                     UkupanIznos = Convert.ToInt64( komanda["UkupanIznos"]),
-                    Korisnik = new Nalog {
+                    Korisnik = new Clan {
                         ClanskiBroj = (int) komanda["SifraClana"]
                     } ,
                 };
@@ -106,17 +106,24 @@ namespace Klasa
 
         public string vratiUslovPoNazivu()
         {
-            return $"SifraClana LIKE '%{this.Korisnik.ImePrezime}%' OR SifraClana LIKE '%{this.Korisnik.ClanskiBroj}%' ";
+            //TO DO
+            //SifraClana LIKE '%{this.Korisnik.ImePrezime}%' OR 
+            return $"SifraClana LIKE '%{this.Korisnik.ClanskiBroj}%' ";
         }
 
         public string vratiUslovZaPronalazenjeObjekata(string trazeni)
         {
-            return $"SifraNarudzbenice LIKE '%{trazeni}%' ";
+            return $"SifraNarudzbenice LIKE '%{trazeni}%' OR DatumOd LIKE '%{trazeni}%' OR UkupanIznos LIKE '%{trazeni}%'";
         }
 
+        public string vratiUslovZaUspesanLogin(string korisnik, string sifra)
+        {
+            throw new NotImplementedException();
+        }
 
-        
-
-        
+        public string vratiNazivTabele(string kriterijum)
+        {
+            return "Narudzbenica";
+        }
     }
 }

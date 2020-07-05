@@ -16,7 +16,8 @@ namespace SistemskeOperacije.Narudzbenice
 
             List<IDomenskiObjekat> _lista = Broker.Instanca.vratiSvePodUslovom(new StavkaNarudzbenice(), nar.SifraNarudzbenice.ToString());
             nar.stavke = _lista.Cast<StavkaNarudzbenice>().ToList();
-
+            nar.Korisnik = (Clan)Broker.Instanca.vratiJedan(nar.Korisnik);
+            nar.Korisnik.osoba = (Klasa.Osoba)Broker.Instanca.vratiJedan(nar.Korisnik.osoba);
             foreach (StavkaNarudzbenice sn in nar.stavke)
             {
                 sn.proizvod = (GamingProizvod)Broker.Instanca.vratiObjekat(new GamingProizvod(), sn.proizvod.proizvodID.ToString());

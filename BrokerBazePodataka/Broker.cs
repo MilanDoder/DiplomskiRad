@@ -122,6 +122,32 @@ namespace BrokerBazePodataka
 
         }
 
+        public List<IDomenskiObjekat> pretragaObjekta(IDomenskiObjekat objekat, string kriterijum)
+        {
+
+
+            try
+            {
+                SqlCommand komanda = new SqlCommand("", konekcija, transakcija);
+                string query = $"SELECT * FROM {objekat.vratiNazivTabele(kriterijum)} WHERE {objekat.vratiUslovZaPretragu(kriterijum)}";
+
+                komanda.CommandText = query;
+
+                SqlDataReader citac = komanda.ExecuteReader();
+
+                return objekat.vratiListu(citac).ToList();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
+
+
+
         public IDomenskiObjekat vratiJedan(IDomenskiObjekat domenskiObjekat)
         {
             SqlDataReader citac = null;
@@ -140,6 +166,7 @@ namespace BrokerBazePodataka
 
         public int Sacuvaj(IDomenskiObjekat objekat)
     {
+        
         SqlCommand komanda = new SqlCommand("", konekcija, transakcija);
         string query = $"INSERT INTO {objekat.vratiNazivTabele()} VALUES ({objekat.vratiVrednostZaInsert()})";
 
@@ -166,6 +193,8 @@ namespace BrokerBazePodataka
             komanda.CommandText = query;
             return komanda.ExecuteNonQuery();
         }
+
+
 
         public int najveciID(IDomenskiObjekat objekat)
         {
@@ -223,32 +252,32 @@ namespace BrokerBazePodataka
 
 
 
-        //public List<IDomenskiObjekat> pronadjiObjekatIVratiGa(IDomenskiObjekat objekat, string trazeni)
-        //{
+        public List<IDomenskiObjekat> pretrazi(IDomenskiObjekat objekat, string trazeni)
+        {
 
-        //    SqlDataReader citac = null;
-        //    try
-        //    {
-        //        SqlCommand komanda = new SqlCommand("", konekcija, transakcija);
+            SqlDataReader citac = null;
+            try
+            {
+                SqlCommand komanda = new SqlCommand("", konekcija, transakcija);
 
-        //        string query = $"SELECT * FROM {objekat.vratiNazivTabele()} WHERE {objekat.vratiUslovZaPretragu(trazeni)}";
+                string query = $"SELECT * FROM {objekat.vratiNazivTabele()} WHERE {objekat.vratiUslovZaPretragu(trazeni)}";
 
-        //        komanda.CommandText = query;
-        //        citac = komanda.ExecuteReader();
-        //        return objekat.vratiListu(citac);
-        //    }
-        //    finally
-        //    {
-        //        if (citac != null)
-        //        {
-        //            citac.Close();
-        //        }
-        //    }
+                komanda.CommandText = query;
+                citac = komanda.ExecuteReader();
+                return objekat.vratiListu(citac).ToList();
+            }
+            finally
+            {
+                if (citac != null)
+                {
+                    citac.Close();
+                }
+            }
 
 
 
-        //    throw new Exception();
-        //}
+            throw new Exception();
+        }
 
     }
 }

@@ -58,10 +58,10 @@ namespace Forme
                 {
                     MessageBox.Show("Sistem je uneo Gaming proizvod");
                  
-                    frm_glavna glavna = new frm_glavna();
-                    this.Hide();
-                    glavna.Show();
-                    this.Owner = glavna;
+                    //frm_glavna glavna = new frm_glavna();
+                    this.Close();
+                    //glavna.Show();
+                    //this.Owner = glavna;
                 }
                 else {
                     throw new Exception();

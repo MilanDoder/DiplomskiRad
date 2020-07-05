@@ -12,8 +12,8 @@ namespace Forme
 {
     public class KontrolerKINalog
     {
-        public static Nalog nalog { get; set; }
-        private static BindingList<Nalog> _listaNaloga;
+        public static Clan nalog { get; set; }
+        private static BindingList<Clan> _listaNaloga;
 
         public static frm_glavna GlavnaForma { get; set; } 
 
@@ -26,40 +26,48 @@ namespace Forme
         public static void ucitajNaloge(DataGridView dgv_podaci)
         {
 
-            _listaNaloga = new BindingList<Nalog>(Komunikacija.Instanca.vratiSveNaloge());
+            _listaNaloga = new BindingList<Clan>(Komunikacija.Instanca.vratiSveNaloge());
             dgv_podaci.DataSource = _listaNaloga;
             dgv_podaci.Refresh();
         }
 
 
-        public static void prikazNaloga(Panel pnl_prikazElemenata, Label lbl_clanskiBrojIzabranogClana,TextBox txt_imeIzabranogClana,TextBox txt_prezimeIzabranogClana,
+        public static void prikazNaloga(Panel pnl_prikazElemenata, Label lbl_clanskiBrojIzabranogClana, Label lbl_osobaIzabranogClana,TextBox txt_imeIzabranogClana,TextBox txt_prezimeIzabranogClana,
             TextBox txt_telefonIzabranogClana,TextBox txt_emailIzbranogClana,TextBox txt_adresaIzabranogClana) {
 
             pnl_prikazElemenata.Show();
             pnl_prikazElemenata.Size = new Size(447, 297);
             pnl_prikazElemenata.Location = new Point(166, 61);
 
+            lbl_osobaIzabranogClana.Text = nalog.osoba.OsobaId.ToString();
             lbl_clanskiBrojIzabranogClana.Text = nalog.ClanskiBroj.ToString();
-            txt_imeIzabranogClana.Text = nalog.ImePrezime.Substring(0, nalog.ImePrezime.IndexOf(" "));
-            txt_prezimeIzabranogClana.Text = nalog.ImePrezime.Substring(nalog.ImePrezime.IndexOf(" ") + 1);
-            txt_telefonIzabranogClana.Text = nalog.KontaktTelefon;
-            txt_emailIzbranogClana.Text = nalog.Email;
-            txt_adresaIzabranogClana.Text = nalog.Adresa;
+            txt_imeIzabranogClana.Text = nalog.osoba.Ime;
+            txt_prezimeIzabranogClana.Text = nalog.osoba.Prezime;
+            txt_telefonIzabranogClana.Text = nalog.osoba.Telefon;
+            //TO DO EMAIL
+            //nalog.ImePrezime.Substring(0, nalog.ImePrezime.IndexOf(" ")); nalog.ImePrezime.Substring(nalog.ImePrezime.IndexOf(" ") + 1);
+            txt_emailIzbranogClana.Text = "";
+            txt_adresaIzabranogClana.Text = nalog.osoba.Adresa;
         }
 
-        public static Nalog vratiNalogIzForme(Label lbl_clanskiBrojIzabranogClana, TextBox txt_imeIzabranogClana, TextBox txt_prezimeIzabranogClana,
+        public static Osoba vratiNalogIzForme(Label lbl_clanskiBrojIzabranogClana,Label lbl_OsobaIzabranogClana, TextBox txt_imeIzabranogClana, TextBox txt_prezimeIzabranogClana,
                                             TextBox txt_telefonIzabranogClana, TextBox txt_emailIzbranogClana, TextBox txt_adresaIzabranogClana) {
-            return new Nalog
+            Clan cl = new Clan
             {
                 ClanskiBroj = Convert.ToInt32(lbl_clanskiBrojIzabranogClana.Text),
-                ImePrezime = txt_imeIzabranogClana.Text + " " + txt_prezimeIzabranogClana.Text,
-                KontaktTelefon = txt_telefonIzabranogClana.Text,
-                Email = txt_emailIzbranogClana.Text,
-                Adresa = txt_adresaIzabranogClana.Text
+                osoba = new Osoba {
+                    OsobaId = Convert.ToInt32(lbl_OsobaIzabranogClana.Text),
+                    Ime = txt_imeIzabranogClana.Text,
+                    Prezime = txt_prezimeIzabranogClana.Text,
+                    Telefon= txt_telefonIzabranogClana.Text,
+                    //TO DO EMAIL
+                    Adresa = txt_adresaIzabranogClana.Text,
+                },
+
 
 
             };
-
+            return cl.osoba;
         }
 
 

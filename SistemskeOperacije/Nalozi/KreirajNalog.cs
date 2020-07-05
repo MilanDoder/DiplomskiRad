@@ -12,7 +12,10 @@ namespace SistemskeOperacije.Nalozi
     {
         protected override object IzvrsiKonkrentuSO(object objekat)
         {
-            int uspesno = Broker.Instanca.Sacuvaj((Nalog)objekat);
+            int uspesno = Broker.Instanca.Sacuvaj((Clan)objekat);
+            Clan clan = (Clan)objekat;
+
+            //uspesno = Broker.Instanca.Sacuvaj((Klasa.Osoba)clan.osoba);
             if (uspesno == 1)
             {
                 return true;

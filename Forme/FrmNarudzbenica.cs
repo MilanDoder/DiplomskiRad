@@ -14,7 +14,7 @@ namespace Forme
 {
     public partial class FrmNarudzbenica : Form
     {
-        private Nalog korisnik;
+        private Clan korisnik;
         private GamingProizvod GamProizvod;
         private float ukupanIznos = 0;
 
@@ -175,7 +175,7 @@ namespace Forme
 
         private void cbx_korisnikClan_SelectedIndexChanged(object sender, EventArgs e)
         {
-            korisnik = cbx_korisnikClan.SelectedItem as Nalog;
+            korisnik = cbx_korisnikClan.SelectedItem as Clan;
             
         }
 
@@ -194,15 +194,37 @@ namespace Forme
                 
                 Narudzbenica nar = kreirajNarudzbenicu();
 
-                
 
-                Komunikacija.Instanca.SacuvajNarudzbenicu(nar);
-                _listaStavki = new BindingList<StavkaNarudzbenice>();
+
+                if (Komunikacija.Instanca.SacuvajNarudzbenicu(nar))
+                {
+                    MessageBox.Show("Narudzbenica je kreirana");
+                }
+                else {
+                    MessageBox.Show("Sistem ne moze da kreira narudzbenicu");
+                }
+
+                this.Close();
+                /*_listaStavki = new BindingList<StavkaNarudzbenice>();
                 dgv_StavkeNarudzbenice.DataSource = _listaStavki;
                 txt_datumOd.Text = "";
                 txt_datumDo.Text = "";
                 txt_ukupanIznos.Text = "";
-                MessageBox.Show("Narudzbenica je kreirana");
+                
+
+                if (Komunikacija.Instanca.kreirajProizvod(g))
+                {
+                    MessageBox.Show("Sistem je uneo Gaming proizvod");
+
+                    frm_glavna glavna = new frm_glavna();
+                    this.Hide();
+                    glavna.Show();
+                    this.Owner = glavna;
+                }
+                else
+                {
+                    throw new Exception();
+                }*/
             }
             catch (Exception ex)
             {

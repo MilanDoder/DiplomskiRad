@@ -121,7 +121,7 @@ namespace Forme
         //                    kraj = true;
 
         //                    break;
-                        
+
 
         //            }
 
@@ -135,7 +135,29 @@ namespace Forme
         //    }
         //}
 
-        internal bool kreirajNalog(Nalog n)
+        internal bool kreirajOsobu(Osoba o)
+        {
+            Zahtev zahtev = new Zahtev
+            {
+                Operacija = Operacija.KreirajOsobu,
+                Podaci = o
+            };
+            this.formater.Serialize(this.stream, zahtev);
+
+
+            Odgovor odgovor = (Odgovor)this.formater.Deserialize(this.stream);
+
+            if (odgovor.Uspesnost)
+            {
+                return true;
+            }
+            else
+            {
+                throw new Exception(odgovor.Podaci.ToString());
+            }
+        }
+
+        internal bool kreirajNalog(Clan n)
         {
             Zahtev zahtev = new Zahtev
             {
@@ -177,7 +199,7 @@ namespace Forme
             }
         }
 
-        public IList<Nalog> vratiSveNaloge() {
+        public IList<Clan> vratiSveNaloge() {
             Zahtev zahtev = new Zahtev
             {
                 Operacija = Operacija.VratiSveNaloge
@@ -188,7 +210,7 @@ namespace Forme
 
             if (odgovor.Uspesnost)
             {
-                return (IList<Nalog>) odgovor.Podaci;
+                return (IList<Clan>) odgovor.Podaci;
             }
             else {
                 throw new Exception(odgovor.Podaci.ToString());
@@ -243,7 +265,7 @@ namespace Forme
                 Podaci = new Zaposleni
                 {
                     KorisnickoIme = username,
-                    KorisnickaSifra = password
+                    Sifra = password
                 }
 
             };
@@ -283,7 +305,7 @@ namespace Forme
             }
         }
 
-        internal void SacuvajNarudzbenicu(Narudzbenica nar)
+        internal bool SacuvajNarudzbenicu(Narudzbenica nar)
         {
             Zahtev zahtev = new Zahtev
             {
@@ -303,10 +325,10 @@ namespace Forme
 
             if (odgovor.Uspesnost)
             {
-                return;
+                return (bool)odgovor.Podaci;
             }
             else {
-                new Exception("Sistem ne može da kreira narudzbinu");
+                throw new Exception("Sistem ne može da kreira narudzbinu");
             }
 
         }
@@ -321,7 +343,7 @@ namespace Forme
             _instanca = null;
         }
 
-        public IList<Nalog> pretragaNaloga(string kriterijum) {
+        public IList<Clan> pretragaNaloga(string kriterijum) {
             Zahtev zahtev = new Zahtev
             {
                 Operacija = Operacija.PretraziNalog,
@@ -334,9 +356,31 @@ namespace Forme
 
             if (odgovor.Uspesnost)
             {
-                return (IList<Nalog>)odgovor.Podaci;
+                return (IList<Clan>)odgovor.Podaci;
             }
             else {
+                throw new Exception(odgovor.Podaci.ToString());
+            }
+        }
+
+        internal bool ObrisOsobu(Osoba os)
+        {
+            Zahtev zahtev = new Zahtev
+            {
+                Operacija = Operacija.ObrisiOsobu,
+                Podaci = os,
+
+            };
+            this.formater.Serialize(this.stream, zahtev);
+
+            Odgovor odgovor = (Odgovor)this.formater.Deserialize(this.stream);
+
+            if (odgovor.Uspesnost)
+            {
+                return (bool)odgovor.Podaci;
+            }
+            else
+            {
                 throw new Exception(odgovor.Podaci.ToString());
             }
         }
@@ -361,7 +405,7 @@ namespace Forme
             }
         }
 
-        public bool produziNalog(Nalog n) {
+        public bool produziNalog(Clan n) {
             Zahtev zahtev = new Zahtev
             {
                 Operacija = Operacija.PromeniNalog,
@@ -376,6 +420,30 @@ namespace Forme
                 return (bool)odgovor.Podaci;
             }
             else{
+                throw new Exception(odgovor.Podaci.ToString());
+            }
+
+
+        }
+
+        public bool promeniOsobu(Osoba os)
+        {
+            Zahtev zahtev = new Zahtev
+            {
+                Operacija = Operacija.PromeniOsobu,
+                Podaci = os
+
+            };
+            this.formater.Serialize(this.stream, zahtev);
+
+            Odgovor odgovor = (Odgovor)formater.Deserialize(this.stream);
+
+            if (odgovor.Uspesnost)
+            {
+                return (bool)odgovor.Podaci;
+            }
+            else
+            {
                 throw new Exception(odgovor.Podaci.ToString());
             }
 
@@ -402,7 +470,7 @@ namespace Forme
             }
         }
 
-        internal bool ObrisiNalog(Nalog n)
+        internal bool ObrisiNalog(Clan n)
         {
             Zahtev zahtev = new Zahtev
             {
@@ -462,7 +530,7 @@ namespace Forme
 
         }
 
-        internal Nalog vratiNalogPoUslovu(string v)
+        internal Clan vratiNalogPoUslovu(string v)
         {
             Zahtev zahtev = new Zahtev
             {
@@ -475,7 +543,7 @@ namespace Forme
 
             if (odgovor.Uspesnost)
             {
-                return (Nalog)odgovor.Podaci;
+                return (Clan)odgovor.Podaci;
             }
             else {
                 throw new Exception(odgovor.Podaci.ToString());
@@ -577,7 +645,13 @@ namespace Forme
                 Operacija = Operacija.Odjavi,
 
             };
-            this.formater.Serialize(this.stream,zatev);
+            try
+            {
+                this.formater.Serialize(this.stream, zatev);
+            }
+            catch (Exception ex) { 
+                
+            }
 
         }
 

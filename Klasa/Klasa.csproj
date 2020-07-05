@@ -42,9 +42,10 @@
   <ItemGroup>
     <Compile Include="GamingProizvod.cs" />
     <Compile Include="IDomenskiObjekat.cs" />
-    <Compile Include="Nalog.cs" />
+    <Compile Include="Clan.cs" />
     <Compile Include="Narudzbenica.cs" />
     <Compile Include="Odgovor.cs" />
+    <Compile Include="Osoba.cs" />
     <Compile Include="Proizvodjac.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StavkaNarudzbenice.cs" />

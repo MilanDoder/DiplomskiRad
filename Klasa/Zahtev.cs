@@ -38,7 +38,11 @@ namespace Klasa
         Proveri_Stanje,
         vratiStavke,
         VratiProizvodjaca,
-        Kraj_Servera
+        Kraj_Servera,
+
+        KreirajOsobu,
+        PromeniOsobu,
+        ObrisiOsobu,
 
     }
 }

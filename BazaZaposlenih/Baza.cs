@@ -13,8 +13,8 @@ namespace BazaZaposlenih
 
         public static List<Zaposleni> Popuni() {
             listaZaposlenih = new List<Zaposleni>() {
-                new Zaposleni { KorisnickoIme = "k1", KorisnickaSifra = "k1", Ime = "Pera", Prezime = "Peric" ,Image = "controlers1.jpg" },
-                new Zaposleni { KorisnickoIme = "k2", KorisnickaSifra = "k2", Ime = "Mika", Prezime = "Mikic" ,Image = "controlers1.jpg"}
+                new Zaposleni { KorisnickoIme = "k1", Sifra = "k1" },
+                new Zaposleni { KorisnickoIme = "k2", Sifra = "k2"}
             };
             return listaZaposlenih;
         }
@@ -23,8 +23,8 @@ namespace BazaZaposlenih
         public  Baza()
         {
             listaZaposlenih = new List<Zaposleni>() {
-                new Zaposleni { KorisnickoIme = "k1", KorisnickaSifra = "k1", Ime = "Pera", Prezime = "Peric" ,Image = "controlers1.jpg" },
-                new Zaposleni { KorisnickoIme = "k2", KorisnickaSifra = "k2", Ime = "Mika", Prezime = "Mikic" ,Image = "controlers1.jpg"}
+                new Zaposleni { KorisnickoIme = "k1", Sifra = "k1" },
+                new Zaposleni { KorisnickoIme = "k2", Sifra = "k2"}
             };
         }
 

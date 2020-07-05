@@ -53,6 +53,9 @@
     <Compile Include="Narudzbenice\VratiNarudzbenicu.cs" />
     <Compile Include="Narudzbenice\VratiStavke.cs" />
     <Compile Include="Narudzbenice\VratiSveNarudzbenice.cs" />
+    <Compile Include="Osoba\KreirajOsobu.cs" />
+    <Compile Include="Osoba\ObrisiOsobu.cs" />
+    <Compile Include="Osoba\PromeniOsobu.cs" />
     <Compile Include="Proizvodi\KreirajProizvod.cs" />
     <Compile Include="Proizvodi\ObrisiProizvod.cs" />
     <Compile Include="Proizvodi\PretragaProizvoda.cs" />

@@ -12,7 +12,7 @@ namespace SistemskeOperacije.Nalozi
     {
         protected override object IzvrsiKonkrentuSO(object objekat)
         {
-            int uspesno = Broker.Instanca.Obrisi((Nalog)objekat);
+            int uspesno = Broker.Instanca.Obrisi((Clan)objekat);
             if (uspesno == 1)
             {
                 return true;

@@ -12,7 +12,7 @@ namespace SistemskeOperacije.Proizvodi
     {
         protected override object IzvrsiKonkrentuSO(object objekat)
         {
-            List<IDomenskiObjekat> proizvodi = Broker.Instanca.vratiSvePodUslovom(new GamingProizvod(), objekat.ToString());
+            List<IDomenskiObjekat> proizvodi = Broker.Instanca.pretrazi(new GamingProizvod(), objekat.ToString());
             List<GamingProizvod> listaProizvoda = proizvodi.Cast<GamingProizvod>().ToList();
 
             foreach (GamingProizvod proizvod in listaProizvoda)

@@ -10,6 +10,8 @@ namespace Klasa
     public interface IDomenskiObjekat
     {
         string vratiNazivTabele();
+        string vratiNazivTabele(string kriterijum);
+
         string vratiVrednostZaInsert();
         string vratiVrednostZaUpdate();
         
@@ -20,7 +22,9 @@ namespace Klasa
         string vratiUslovPoNazivu();
         string vratiUslovZaPronalazenjeObjekata(string trazeni);
 
-       
+        //string vratiUslovZaUspesanLogin(string korisnik, string sifra);
+
+
         IDomenskiObjekat kreirajObjekat(SqlDataReader citac);
         List<IDomenskiObjekat> vratiListu(SqlDataReader komanda);
     }

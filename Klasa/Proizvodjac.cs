@@ -119,5 +119,15 @@ namespace Klasa
         {
             return "ID";
         }
+
+        public string vratiUslovZaUspesanLogin(string korisnik, string sifra)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string vratiNazivTabele(string kriterijum)
+        {
+            return "Proizvodjac";
+        }
     }
 }

@@ -18,7 +18,7 @@ namespace Forme
 
         string _MybackgroungColor = "#222431";
         string _MyLetterColor = "#4eb8ce";
-        private BindingList<Nalog> _listaNaloga;
+        private BindingList<Clan> _listaNaloga;
         private BindingList<Narudzbenica> _listaNarudzbenica;
         private BindingList<GamingProizvod> _listaGamingProizvoda;
 

@@ -18,7 +18,8 @@ namespace SistemskeOperacije.Narudzbenice
 
             foreach (Narudzbenica narz in listaNarudzbenica)
             {
-                narz.Korisnik = (Nalog)Broker.Instanca.vratiJedan(narz.Korisnik);
+                narz.Korisnik = (Clan)Broker.Instanca.vratiJedan(narz.Korisnik);
+                narz.Korisnik.osoba = (Klasa.Osoba)Broker.Instanca.vratiJedan(narz.Korisnik.osoba);
             }
 
             return listaNarudzbenica;

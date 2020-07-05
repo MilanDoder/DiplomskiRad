@@ -100,5 +100,15 @@ namespace Klasa
         {
             throw new NotImplementedException();
         }
+
+        public string vratiUslovZaUspesanLogin(string korisnik, string sifra)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string vratiNazivTabele(string kriterijum)
+        {
+            return "StavkaNarudzbenice";
+        }
     }
 }

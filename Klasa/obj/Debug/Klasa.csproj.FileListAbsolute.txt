@@ -3,3 +3,9 @@ C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\Klasa\bin\Debug\Klas
 C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\Klasa\obj\Debug\Klasa.csprojResolveAssemblyReference.cache
 C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\Klasa\obj\Debug\Klasa.dll
 C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\Klasa\obj\Debug\Klasa.pdb
+C:\Users\a760876\source\repos\DR-Softveri\DiplomskiRad\Klasa\bin\Debug\Klasa.dll
+C:\Users\a760876\source\repos\DR-Softveri\DiplomskiRad\Klasa\bin\Debug\Klasa.pdb
+C:\Users\a760876\source\repos\DR-Softveri\DiplomskiRad\Klasa\obj\Debug\Klasa.csproj.CoreCompileInputs.cache
+C:\Users\a760876\source\repos\DR-Softveri\DiplomskiRad\Klasa\obj\Debug\Klasa.dll
+C:\Users\a760876\source\repos\DR-Softveri\DiplomskiRad\Klasa\obj\Debug\Klasa.pdb
+C:\Users\a760876\source\repos\DR-Softveri\DiplomskiRad\Klasa\obj\Debug\Klasa.csprojAssemblyReference.cache

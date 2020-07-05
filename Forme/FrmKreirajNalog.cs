@@ -33,16 +33,27 @@ namespace Forme
                
                 //Doraditi
                 ValidacijaPodataka();
-                Nalog n = new Nalog
-                {
-                    ClanskiBroj = clBroj,
-                    ImePrezime = txt_ImeClana.Text + " " + txt_prezimeClana.Text,
-                    KontaktTelefon = txt_telefonClana.Text,
-                    Email = txt_emailClana.Text,
-                    Adresa = txt_adresaClana.Text
-                };
+                /* Clan n = new Clan
+                 {
+                     ClanskiBroj = clBroj,
+                     osoba = new Osoba { 
+                        Ime =  txt_ImeClana.Text,
+                        Prezime = txt_prezimeClana.Text,
+                        Telefon =  txt_telefonClana.Text,
+                        Adresa = txt_adresaClana.Text,
+                     }
 
-                if (Komunikacija.Instanca.kreirajNalog(n))
+                 };*/
+
+                Osoba o = new Osoba
+                {
+                    Ime = txt_ImeClana.Text,
+                    Prezime = txt_prezimeClana.Text,
+                    Telefon = txt_telefonClana.Text,
+                    Adresa = txt_adresaClana.Text,
+                };
+                //Bilo kreiraj Nalog
+                if (Komunikacija.Instanca.kreirajOsobu(o))
                 {
                     MessageBox.Show("Sistem je kreirao nalog");
                 }

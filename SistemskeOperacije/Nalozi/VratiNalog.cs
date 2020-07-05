@@ -12,7 +12,9 @@ namespace SistemskeOperacije.Nalozi
     {
         protected override object IzvrsiKonkrentuSO(object objekat)
         {
-            Nalog n = (Nalog)Broker.Instanca.vratiObjekat(new Nalog(), objekat.ToString());
+            Clan n = (Clan)Broker.Instanca.vratiObjekat(new Clan(), objekat.ToString());
+
+            n.osoba = (Klasa.Osoba)Broker.Instanca.vratiObjekat(new Klasa.Osoba(), n.osoba.OsobaId.ToString());
             return n;
 
         }

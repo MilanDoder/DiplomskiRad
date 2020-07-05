@@ -12,10 +12,16 @@ namespace SistemskeOperacije.Nalozi
     {
         protected override object IzvrsiKonkrentuSO(object objekat)
         {
-            List<IDomenskiObjekat> Nalozi = Broker.Instanca.vratiSve(new Nalog());
+            List<IDomenskiObjekat> Nalozi = Broker.Instanca.vratiSve(new Clan());
 
 
-            List<Nalog> listaNaloga = Nalozi.Cast<Nalog>().ToList();
+            List<Clan> listaNaloga = Nalozi.Cast<Clan>().ToList();
+
+            foreach (Clan cl in listaNaloga)
+            {
+
+                cl.osoba = (Klasa.Osoba)Broker.Instanca.vratiJedan(cl.osoba);
+            }
 
             return listaNaloga;
         }

@@ -21,7 +21,7 @@ namespace Forme
 
         
 
-        private BindingList<Nalog> _listaNaloga = new BindingList<Nalog>();
+        private BindingList<Clan> _listaNaloga = new BindingList<Clan>();
         private BindingList<GamingProizvod> _listaGamingProizvoda = new BindingList<GamingProizvod>();
         private BindingList<Narudzbenica> _listaNarudzbenica = new BindingList<Narudzbenica>();
         private List<StavkaNarudzbenice> _listaStavkinarudzbenica =  new List<StavkaNarudzbenice>();
@@ -45,7 +45,7 @@ namespace Forme
             this.StartPosition = FormStartPosition.CenterScreen;
             pnl_left.Hide();
             _z = z;
-            lbl_zaposleniIme.Text = _z.Ime + " " + _z.Prezime;
+            lbl_zaposleniIme.Text = _z.osoba.Ime + " " + _z.osoba.Prezime;
             //Forme.Properties.Resources.userWhite
             //string url = @"C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\Forme\Resources\controlers1.jpg";
             //string slika = $"C:\\Users\\Miki\\Desktop\\Aplikacija-Softveri\\Softveri\\Softveri\\Forme\\Resources\\{_z.Image}";
@@ -168,8 +168,10 @@ namespace Forme
             //Omoguca pretrazivanje naloga
             if (pnl_selektovanoDugme.Location.X.Equals(0) && pnl_selektovanoDugme.Location.Y.Equals(109) ) {
                // object lista = Komunikacija.Instanca.pretragaNaloga(btn_pretraga.Text);
-                _listaNaloga = new BindingList<Nalog>(Komunikacija.Instanca.pretragaNaloga(btn_pretraga.Text));
-                dgv_podaci.DataSource = (BindingList<Nalog>) _listaNaloga;
+                _listaNaloga = new BindingList<Clan>(Komunikacija.Instanca.pretragaNaloga(btn_pretraga.Text));
+
+               // _listaNaloga.Where(c => btn_pretraga.Text.ToLower().Contains(c.Adresa.ToLower().ToString()));
+                dgv_podaci.DataSource = (BindingList<Clan>) _listaNaloga;
 
             }
             if (pnl_selektovanoDugme.Location == (new Point(0, 147)))
@@ -245,16 +247,19 @@ namespace Forme
             if (pnl_selektovanoDugme.Location == new Point(0, 109)) {
                 try
                 {
-                    Nalog n = KontrolerKINalog.vratiNalogIzForme(lbl_clanskiBrojIzabranogClana, txt_imeIzabranogClana, txt_prezimeIzabranogClana,
+                    Osoba os = KontrolerKINalog.vratiNalogIzForme(lbl_clanskiBrojIzabranogClana, lbl_OsobaIzabranogClana,txt_imeIzabranogClana, txt_prezimeIzabranogClana,
                                                                 txt_telefonIzabranogClana, txt_emailIzbranogClana, txt_adresaIzabranogClana);
-
-                    if (Komunikacija.Instanca.ObrisiNalog(n))
+                    //todo
+                    Clan cl = new Clan
+                    {
+                        ClanskiBroj = Convert.ToInt32(lbl_clanskiBrojIzabranogClana.Text),
+                    };
+                    if (Komunikacija.Instanca.ObrisiNalog(cl))
                     {
                         MessageBox.Show("Sistem je obrisao nalog");
-                        throw new Exception();
                         pnl_prikazElemenata.Hide();
                         ukljuciDugmad();
-                        _listaNaloga = new BindingList<Nalog>(Komunikacija.Instanca.vratiSveNaloge());
+                        _listaNaloga = new BindingList<Clan>(Komunikacija.Instanca.vratiSveNaloge());
                         dgv_podaci.DataSource = _listaNaloga;
                         dgv_podaci.Refresh();
                     }
@@ -386,10 +391,10 @@ namespace Forme
                 try
                 {
                    
-                    Nalog n = KontrolerKINalog.vratiNalogIzForme(lbl_clanskiBrojIzabranogClana,txt_imeIzabranogClana,txt_prezimeIzabranogClana,
+                    Osoba os = KontrolerKINalog.vratiNalogIzForme(lbl_clanskiBrojIzabranogClana,lbl_OsobaIzabranogClana,txt_imeIzabranogClana,txt_prezimeIzabranogClana,
                                                                 txt_telefonIzabranogClana,txt_emailIzbranogClana,txt_adresaIzabranogClana);
 
-                    if (Komunikacija.Instanca.produziNalog(n))
+                    if (Komunikacija.Instanca.promeniOsobu(os))
                     {
                         MessageBox.Show("Nalog je promenjen!");
                         
@@ -518,26 +523,34 @@ namespace Forme
         /// Njen prikaz
         /// </summary>
         /// <param name="n"></param>
-        private void pozoviFormuZaPromenuNaloga(Nalog n) {
+        private void pozoviFormuZaPromenuNaloga(Clan n) {
+            lbl_OsobaIzabranogClana.Text = n.osoba.OsobaId.ToString();
             lbl_clanskiBrojIzabranogClana.Text = n.ClanskiBroj.ToString();
-            txt_imeIzabranogClana.Text = n.ImePrezime.Substring(0, n.ImePrezime.IndexOf(" "));
-            txt_prezimeIzabranogClana.Text = n.ImePrezime.Substring(n.ImePrezime.IndexOf(" ") + 1);
-            txt_telefonIzabranogClana.Text = n.KontaktTelefon;
-            txt_emailIzbranogClana.Text = n.Email;
-            txt_adresaIzabranogClana.Text = n.Adresa;
+            txt_imeIzabranogClana.Text = n.osoba.Ime;
+            txt_prezimeIzabranogClana.Text = n.osoba.Prezime;
+            //txt_imeIzabranogClana.Text = n.ImePrezime.Substring(0, n.ImePrezime.IndexOf(" "));
+            //txt_prezimeIzabranogClana.Text = n.ImePrezime.Substring(n.ImePrezime.IndexOf(" ") + 1);
+            txt_telefonIzabranogClana.Text = n.osoba.Telefon;
+            //TO DO EMAIL
+            txt_emailIzbranogClana.Text = "";
+            txt_adresaIzabranogClana.Text = n.osoba.Adresa;
         }
 
         /// <summary>
         /// Za sada ne potrebna
         /// </summary>
         /// <returns></returns>
-        private Nalog napraviNalogPrekoTabele(DataGridViewCellEventArgs e) {
-            return new Nalog {
+        private Clan napraviNalogPrekoTabele(DataGridViewCellEventArgs e) {
+            return new Clan {
                 ClanskiBroj = Convert.ToInt32(dgv_podaci.Rows[e.RowIndex].Cells[0].Value.ToString()),
-                ImePrezime = dgv_podaci.Rows[e.RowIndex].Cells[1].Value.ToString(),
-                KontaktTelefon = dgv_podaci.Rows[e.RowIndex].Cells[2].Value.ToString(),
-                Email = dgv_podaci.Rows[e.RowIndex].Cells[3].Value.ToString(),
-                Adresa = dgv_podaci.Rows[e.RowIndex].Cells[4].Value.ToString()
+                osoba = new Osoba { 
+                    Ime = dgv_podaci.Rows[e.RowIndex].Cells[1].Value.ToString(),
+                    Prezime = dgv_podaci.Rows[e.RowIndex].Cells[2].Value.ToString(),
+                    Telefon = dgv_podaci.Rows[e.RowIndex].Cells[3].Value.ToString(),
+                    Adresa = dgv_podaci.Rows[e.RowIndex].Cells[4].Value.ToString()
+                },
+                
+                
             };
         }
 
@@ -652,10 +665,10 @@ namespace Forme
                 try
                 {
                     
-                    Nalog n = Komunikacija.Instanca.vratiNalogPoUslovu(((Nalog)dgv_podaci.Rows[e.RowIndex].DataBoundItem).ClanskiBroj.ToString());
+                    Clan n = Komunikacija.Instanca.vratiNalogPoUslovu(((Clan)dgv_podaci.Rows[e.RowIndex].DataBoundItem).ClanskiBroj.ToString());
 
                     KontrolerKINalog.nalog = n;
-                    KontrolerKINalog.prikazNaloga(pnl_prikazElemenata, lbl_clanskiBrojIzabranogClana, txt_imeIzabranogClana, txt_prezimeIzabranogClana,
+                    KontrolerKINalog.prikazNaloga(pnl_prikazElemenata, lbl_clanskiBrojIzabranogClana, lbl_OsobaIzabranogClana, txt_imeIzabranogClana, txt_prezimeIzabranogClana,
                         txt_telefonIzabranogClana, txt_emailIzbranogClana, txt_adresaIzabranogClana);
                     IskljuciDugmad();
                 }
@@ -680,7 +693,7 @@ namespace Forme
                     Debug.WriteLine("" + na.SifraNarudzbenice);
                     na.stavke = Komunikacija.Instanca.vratiStavkeNarudzbenice(na.SifraNarudzbenice);
                     //pnl_narudzbenica.Show();
-                    //pnl_narudzbenica.Size = new Size(448,291);
+                   // pnl_narudzbenica.Size = new Size(448,291);
                     //pozoviFormuZaNarudzbenicu(na);
 
                     KontrolerKINarudzbenica.narudzbenica = na;
@@ -733,8 +746,9 @@ namespace Forme
         private void pozoviFormuZaNarudzbenicu(Narudzbenica n)
         {
             txt_ImePrezimeClanaNarudzbenica.Text = n.Korisnik.ToString();
-            txt_emailClanaNarudzbenica.Text = n.Korisnik.Email;
-            txt_telefonClanaNarudzbenica.Text = n.Korisnik.KontaktTelefon;
+            //TO DO EMAIL
+            txt_emailClanaNarudzbenica.Text = "";
+            txt_telefonClanaNarudzbenica.Text = n.Korisnik.osoba.Telefon;
             lbl_clanskiNalog.Text = n.Korisnik.ClanskiBroj.ToString();
 
             lbl_sifraNarudzbenice.Text = n.SifraNarudzbenice.ToString();
@@ -774,5 +788,7 @@ namespace Forme
         {
             Komunikacija.Instanca.Kraj();
         }
+
+
     }
 }

@@ -29,8 +29,9 @@ namespace Forme
             pnl_narudzbenica.Size = new Size(448, 291);
 
             txt_ImePrezimeClanaNarudzbenica.Text = narudzbenica.Korisnik.ToString();
-            txt_emailClanaNarudzbenica.Text = narudzbenica.Korisnik.Email;
-            txt_telefonClanaNarudzbenica.Text = narudzbenica.Korisnik.KontaktTelefon;
+            //TO DO EMAIL
+            txt_emailClanaNarudzbenica.Text = narudzbenica.Korisnik.osoba.Adresa;
+            txt_telefonClanaNarudzbenica.Text = narudzbenica.Korisnik.osoba.Telefon;
             lbl_clanskiNalog.Text = narudzbenica.Korisnik.ClanskiBroj.ToString();
 
             lbl_sifraNarudzbenice.Text = narudzbenica.SifraNarudzbenice.ToString();

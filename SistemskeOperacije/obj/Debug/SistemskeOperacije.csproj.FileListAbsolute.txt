@@ -9,3 +9,16 @@ C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\SistemskeOperacije\b
 C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\SistemskeOperacije\obj\Debug\SistemskeOperacije.csprojResolveAssemblyReference.cache
 C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\SistemskeOperacije\obj\Debug\SistemskeOperacije.dll
 C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\SistemskeOperacije\obj\Debug\SistemskeOperacije.pdb
+C:\Users\a760876\source\repos\DR-Softveri\DiplomskiRad\SistemskeOperacije\bin\Debug\SistemskeOperacije.dll
+C:\Users\a760876\source\repos\DR-Softveri\DiplomskiRad\SistemskeOperacije\bin\Debug\SistemskeOperacije.pdb
+C:\Users\a760876\source\repos\DR-Softveri\DiplomskiRad\SistemskeOperacije\bin\Debug\BazaZaposlenih.dll
+C:\Users\a760876\source\repos\DR-Softveri\DiplomskiRad\SistemskeOperacije\bin\Debug\BrokerBazePodataka.dll
+C:\Users\a760876\source\repos\DR-Softveri\DiplomskiRad\SistemskeOperacije\bin\Debug\Klasa.dll
+C:\Users\a760876\source\repos\DR-Softveri\DiplomskiRad\SistemskeOperacije\bin\Debug\BazaZaposlenih.pdb
+C:\Users\a760876\source\repos\DR-Softveri\DiplomskiRad\SistemskeOperacije\bin\Debug\BrokerBazePodataka.pdb
+C:\Users\a760876\source\repos\DR-Softveri\DiplomskiRad\SistemskeOperacije\bin\Debug\Klasa.pdb
+C:\Users\a760876\source\repos\DR-Softveri\DiplomskiRad\SistemskeOperacije\obj\Debug\SistemskeOperacije.csprojAssemblyReference.cache
+C:\Users\a760876\source\repos\DR-Softveri\DiplomskiRad\SistemskeOperacije\obj\Debug\SistemskeOperacije.csproj.CoreCompileInputs.cache
+C:\Users\a760876\source\repos\DR-Softveri\DiplomskiRad\SistemskeOperacije\obj\Debug\SistemskeOperacije.csproj.CopyComplete
+C:\Users\a760876\source\repos\DR-Softveri\DiplomskiRad\SistemskeOperacije\obj\Debug\SistemskeOperacije.dll
+C:\Users\a760876\source\repos\DR-Softveri\DiplomskiRad\SistemskeOperacije\obj\Debug\SistemskeOperacije.pdb

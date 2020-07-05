@@ -95,6 +95,14 @@ namespace Kontroler
                     return new PretraziNarudzbenice();
                 case Operacija.vratiStavke:
                     return new VratiStavke();
+
+                //OSOBA
+                case Operacija.KreirajOsobu:
+                    return new SistemskeOperacije.Osoba.KreirajOsobu();
+                case Operacija.PromeniOsobu:
+                    return new SistemskeOperacije.Osoba.PromeniOsobu();
+                case Operacija.ObrisiOsobu:
+                    return new SistemskeOperacije.Osoba.ObrisiOsobu();
             }
             throw new Exception("Greska prilikom izvrsavanje sistemske operacije!");
 

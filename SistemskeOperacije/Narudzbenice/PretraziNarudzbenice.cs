@@ -18,7 +18,7 @@ namespace SistemskeOperacije.Narudzbenice
 
             foreach (Narudzbenica narudz in _listanarudzbenica)
             {
-                narudz.Korisnik = (Nalog)Broker.Instanca.vratiJedan(narudz.Korisnik);
+                narudz.Korisnik = (Clan)Broker.Instanca.vratiJedan(narudz.Korisnik);
             }
 
 

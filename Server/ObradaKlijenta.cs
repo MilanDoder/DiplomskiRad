@@ -66,6 +66,7 @@ namespace Server
 
                             
                             GlavnaFormaServer.brojZaposlenih--;
+                            odgovor.Uspesnost = true;
                            
                             kraj = true;
                             break;
@@ -203,7 +204,25 @@ namespace Server
                             odgovor.Uspesnost = true;
                             break;
                         #endregion
-
+                        #region Osoba
+                        case Operacija.KreirajOsobu:
+                            opstaSO = Kontroler.Kontroler.Instanca.vratiSistemskuOperaciju(Operacija.KreirajOsobu);
+                            // rezultatSO = 
+                            odgovor.Podaci = opstaSO.IzvrsiSO(zahtev.Podaci);
+                            odgovor.Uspesnost = true;
+                            break;
+                        case Operacija.PromeniOsobu:
+                            opstaSO = Kontroler.Kontroler.Instanca.vratiSistemskuOperaciju(Operacija.PromeniOsobu);
+                            // rezultatSO = 
+                            odgovor.Podaci = opstaSO.IzvrsiSO(zahtev.Podaci);
+                            odgovor.Uspesnost = true;
+                            break;
+                        case Operacija.ObrisiOsobu:
+                            opstaSO = Kontroler.Kontroler.Instanca.vratiSistemskuOperaciju(Operacija.ObrisiOsobu);
+                            odgovor.Podaci = opstaSO.IzvrsiSO(zahtev.Podaci);
+                            odgovor.Uspesnost = true;
+                            break;
+                        #endregion
                         default:  kraj = true; break;
 
                     }
