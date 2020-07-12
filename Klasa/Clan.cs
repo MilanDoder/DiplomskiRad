@@ -15,6 +15,8 @@ namespace Klasa
         public int ClanskiBroj { get; set; }
         [DisplayName("Ime Prezime")]
         public string ImePrezime { get { return osoba.Ime +" " + osoba.Prezime; } set { ; } }
+        [DisplayName("Email")]
+        public string Email { get { return osoba.Email; } set {; } }
         [DisplayName("Adresa")]
         public string Adresa { get { return osoba.Adresa; } set {; } }
         [DisplayName("Telefon")]
@@ -134,9 +136,6 @@ namespace Klasa
 
                 };
               
-               // n.Email = citac["Email"].ToString();
-
-
             };
             return n;
         }

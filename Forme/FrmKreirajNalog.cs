@@ -30,7 +30,7 @@ namespace Forme
             try
             {
                 int clBroj = new Random().Next(0, 99999999);
-               
+
                 //Doraditi
                 ValidacijaPodataka();
                 /* Clan n = new Clan
@@ -50,6 +50,7 @@ namespace Forme
                     Ime = txt_ImeClana.Text,
                     Prezime = txt_prezimeClana.Text,
                     Telefon = txt_telefonClana.Text,
+                    Email = txt_emailClana.Text,
                     Adresa = txt_adresaClana.Text,
                 };
                 //Bilo kreiraj Nalog
@@ -60,8 +61,13 @@ namespace Forme
                 else {
                     MessageBox.Show("1 .Greska pri unosu clana");
                 }
-                
+
                 Close();
+            }
+            catch (InvalidCastException exp) {
+                MessageBox.Show("Greska sa serverom!");
+                Komunikacija.Instanca.PokreniLogin = true;
+                this.Close();
             }
             catch (Exception ex)
             {
@@ -143,10 +149,10 @@ namespace Forme
 
         private void lbl_closeNalog_Click(object sender, EventArgs e)
         {
-            frm_glavna glavna = new frm_glavna();
-            this.Hide();
-            glavna.Show();
-            this.Owner = glavna;
+            //frm_glavna glavna = new frm_glavna();
+            this.Close();
+            //glavna.Show();
+            //this.Owner = glavna;
         }
         ///PLACEHOLDERI
         /// <summary>

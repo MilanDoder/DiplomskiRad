@@ -20,6 +20,8 @@ namespace Klasa
         public string Prezime { get; set; }
         [DisplayName("Telefon")]
         public string Telefon { get; set; }
+        [DisplayName("Email")]
+        public string Email { get; set; }
         [DisplayName("Adresa")]
         public string Adresa { get; set; }
 
@@ -32,17 +34,8 @@ namespace Klasa
                 os.Ime = citac["Ime"].ToString();
                 os.Prezime = citac["Prezime"].ToString();
                 os.Telefon = citac["KontaktTelefon"].ToString();
+                os.Email = citac["Email"].ToString();
                 os.Adresa = citac["Adresa"].ToString();
-                /*osoba = new Osoba
-                {
-                    Ime = citac["Ime"].ToString(),
-                    Prezime = citac["Prezime"].ToString(),
-                    Adresa = citac["Adresa"].ToString(),
-                    Telefon = citac["KontaktTelefon"].ToString()
-                };*/
-                // n.Email = citac["Email"].ToString();
-
-
             };
             return os;
         }
@@ -65,6 +58,7 @@ namespace Klasa
                     Prezime = komanda["Prezime"].ToString(),
                     Telefon = komanda["KontaktTelefon"].ToString(),
                     Adresa = komanda["Adresa"].ToString(),
+                    Email = komanda["Email"].ToString(),
                 };
                 lista.Add(osoba);
             }
@@ -108,12 +102,12 @@ namespace Klasa
 
         public string vratiVrednostZaInsert()
         {
-            return $"'{this.OsobaId}' , '{this.Ime}' , '{this.Prezime}' ,'{this.Telefon}', '', '{this.Adresa}'";
+            return $"'{this.OsobaId}' , '{this.Ime}' , '{this.Prezime}' ,'{this.Telefon}', '{this.Email}', '{this.Adresa}'";
         }
 
         public string vratiVrednostZaUpdate()
         {
-            return $"Ime = '{this.Ime}', Prezime = '{this.Prezime}', KontaktTelefon = '{this.Telefon}', Adresa = '{this.Adresa}'";
+            return $"Ime = '{this.Ime}', Prezime = '{this.Prezime}', KontaktTelefon = '{this.Telefon}', Email = '{this.Email}', Adresa = '{this.Adresa}'";
         }
     }
 }

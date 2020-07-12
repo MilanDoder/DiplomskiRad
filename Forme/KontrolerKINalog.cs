@@ -46,7 +46,7 @@ namespace Forme
             txt_telefonIzabranogClana.Text = nalog.osoba.Telefon;
             //TO DO EMAIL
             //nalog.ImePrezime.Substring(0, nalog.ImePrezime.IndexOf(" ")); nalog.ImePrezime.Substring(nalog.ImePrezime.IndexOf(" ") + 1);
-            txt_emailIzbranogClana.Text = "";
+            txt_emailIzbranogClana.Text = nalog.osoba.Email;
             txt_adresaIzabranogClana.Text = nalog.osoba.Adresa;
         }
 
@@ -60,7 +60,7 @@ namespace Forme
                     Ime = txt_imeIzabranogClana.Text,
                     Prezime = txt_prezimeIzabranogClana.Text,
                     Telefon= txt_telefonIzabranogClana.Text,
-                    //TO DO EMAIL
+                    Email =  txt_emailIzbranogClana.Text,
                     Adresa = txt_adresaIzabranogClana.Text,
                 },
 

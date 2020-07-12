@@ -35,7 +35,6 @@ namespace Forme
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show("Greska. Zatvorite formu!");
             }
             
@@ -90,10 +89,7 @@ namespace Forme
 
         private void lbl_closeNarudzbenica_Click(object sender, EventArgs e)
         {
-            frm_glavna glavna = new frm_glavna();
-            this.Hide();
-            glavna.Show();
-            this.Owner = glavna;
+            this.Close(); 
         }
 
         

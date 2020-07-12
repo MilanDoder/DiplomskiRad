@@ -21,16 +21,16 @@ namespace Forme
 
         private void FrmNovProizvod_Load(object sender, EventArgs e)
         {
-
+  
         }
 
         private void label8_Click(object sender, EventArgs e)
         {
            
-            frm_glavna glavna = new frm_glavna();
-            this.Hide();
-            glavna.Show();
-            this.Owner = glavna;
+            //frm_glavna glavna = new frm_glavna();
+            this.Close();
+            //glavna.Show();
+            //this.Owner = glavna;
 
 
         }

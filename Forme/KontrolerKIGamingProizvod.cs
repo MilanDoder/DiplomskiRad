@@ -23,11 +23,18 @@ namespace Forme
         }
 
         public static void ucitajProizvodjace(ComboBox cbx_proizvodjaci) {
-            IList<Proizvodjac> listaProizvodjaca = new List<Proizvodjac>();
-            listaProizvodjaca = Komunikacija.Instanca.vratiProizvodjace();
-            cbx_proizvodjaci.DataSource = listaProizvodjaca;
-            cbx_proizvodjaci.DisplayMember = "Naziv";
-            cbx_proizvodjaci.ValueMember = "ProizvodjacID";
+            try
+            {
+                IList<Proizvodjac> listaProizvodjaca = new List<Proizvodjac>();
+                listaProizvodjaca = Komunikacija.Instanca.vratiProizvodjace();
+                cbx_proizvodjaci.DataSource = listaProizvodjaca;
+                cbx_proizvodjaci.DisplayMember = "Naziv";
+                cbx_proizvodjaci.ValueMember = "ProizvodjacID";
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Greska. Zatvorite formu!");
+            }
+
         }
 
         public static void prikazGamingProizvoda(Panel pnl_izabraniGamingProizvod, Label lbl_nazivGProizvoda,Label lbl_modelGProizvoda,TextBox txt_cenaIzabranogGamingProizvoda, TextBox txt_karakteristikeIzabranogGamingProizvoda,

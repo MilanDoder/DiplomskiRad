@@ -46,11 +46,7 @@ namespace Forme
             pnl_left.Hide();
             _z = z;
             lbl_zaposleniIme.Text = _z.osoba.Ime + " " + _z.osoba.Prezime;
-            //Forme.Properties.Resources.userWhite
-            //string url = @"C:\Users\Miki\Desktop\Aplikacija-Softveri\Softveri\Softveri\Forme\Resources\controlers1.jpg";
-            //string slika = $"C:\\Users\\Miki\\Desktop\\Aplikacija-Softveri\\Softveri\\Softveri\\Forme\\Resources\\{_z.Image}";
-            
-            //pcb_slikaZaposlenog.Image = Image.FromFile(slika);
+
             btn_pretraga.Enabled = false;
         }
 
@@ -82,21 +78,20 @@ namespace Forme
                                        pnl_left, btn_kreiraj, btn_promeni, btn_Obrisi, btn_pretraga);
                 btn_kreiraj.ButtonText = "Kreiraj";
                 btn_promeni.ButtonText = "Promeni";
-                
+
                 pnl_selektovanoDugme.Location = new Point(0, 109);
-
-                ///Prikaz svih naloga
-                ///     
-
-
+                ///Prikaz svih naloga                
                 KontrolerKINalog.ucitajNaloge(dgv_podaci);
-               
-
-
             }
-            catch (Exception)
+            catch (InvalidCastException ex) {
+                MessageBox.Show("Greska sa serverom?");
+                Komunikacija.Instanca.PokreniLogin = true;
+                this.Dispose();
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("Greska pri promeni selekcije");
+               
             }
         }
 
@@ -105,18 +100,24 @@ namespace Forme
             lbl_selektovaniNaziv.Text = btn_narudzbenica.ButtonText;
             try
             {
-                kki.PostaviDesniPanel(btn_clanovi, btn_narudzbenica, btn_proizvodi, pnl_selektovanoDugme, 
+                kki.PostaviDesniPanel(btn_clanovi, btn_narudzbenica, btn_proizvodi, pnl_selektovanoDugme,
                                        pnl_left, btn_kreiraj, btn_promeni, btn_Obrisi, btn_pretraga);
 
                 btn_kreiraj.ButtonText = "Kreiraj";
                 btn_promeni.ButtonText = "Ažuriraj";
                 pnl_selektovanoDugme.Location = new Point(0, 147);
 
-                KontrolerKINarudzbenica.ucitajNarudzbenice(dgv_podaci); 
+                KontrolerKINarudzbenica.ucitajNarudzbenice(dgv_podaci);
+            }
+            catch (InvalidCastException ex)
+            {
+                MessageBox.Show("Greska sa serverom?");
+                Komunikacija.Instanca.PokreniLogin = true;
+                this.Dispose();
             }
             catch (Exception)
             {
-                MessageBox.Show("Greska pri promeni selekcije");
+                MessageBox.Show("Greska pri promeni selekcije");                
             }
            
         }
@@ -138,7 +139,13 @@ namespace Forme
                 pnl_selektovanoDugme.Location = new Point(0, 185);
 
                 KontrolerKIGamingProizvod.ucitajGamingProizvode(dgv_podaci);
-                
+
+            }
+            catch (InvalidCastException ex)
+            {
+                MessageBox.Show("Greska sa serverom?");
+                Komunikacija.Instanca.PokreniLogin = true;
+                this.Dispose();
             }
             catch (Exception)
             {
@@ -165,26 +172,39 @@ namespace Forme
 
         private void btn_pretraga_TextChange(object sender, EventArgs e)
         {
-            //Omoguca pretrazivanje naloga
-            if (pnl_selektovanoDugme.Location.X.Equals(0) && pnl_selektovanoDugme.Location.Y.Equals(109) ) {
-               // object lista = Komunikacija.Instanca.pretragaNaloga(btn_pretraga.Text);
-                _listaNaloga = new BindingList<Clan>(Komunikacija.Instanca.pretragaNaloga(btn_pretraga.Text));
-
-               // _listaNaloga.Where(c => btn_pretraga.Text.ToLower().Contains(c.Adresa.ToLower().ToString()));
-                dgv_podaci.DataSource = (BindingList<Clan>) _listaNaloga;
-
-            }
-            if (pnl_selektovanoDugme.Location == (new Point(0, 147)))
+            try
             {
-                _listaNarudzbenica = new BindingList<Narudzbenica>(Komunikacija.Instanca.pretragaNarudzbenica(btn_pretraga.Text));
-                dgv_podaci.DataSource = _listaNarudzbenica;
+                //Omoguca pretrazivanje naloga
+                if (pnl_selektovanoDugme.Location.X.Equals(0) && pnl_selektovanoDugme.Location.Y.Equals(109))
+                {
+                    // object lista = Komunikacija.Instanca.pretragaNaloga(btn_pretraga.Text);
+                    _listaNaloga = new BindingList<Clan>(Komunikacija.Instanca.pretragaNaloga(btn_pretraga.Text));
+
+                    // _listaNaloga.Where(c => btn_pretraga.Text.ToLower().Contains(c.Adresa.ToLower().ToString()));
+                    dgv_podaci.DataSource = (BindingList<Clan>)_listaNaloga;
+
+                }
+                if (pnl_selektovanoDugme.Location == (new Point(0, 147)))
+                {
+                    _listaNarudzbenica = new BindingList<Narudzbenica>(Komunikacija.Instanca.pretragaNarudzbenica(btn_pretraga.Text));
+                    dgv_podaci.DataSource = _listaNarudzbenica;
+                }
+                //pretrazivanje proizvoda
+                if (pnl_selektovanoDugme.Location == (new Point(0, 185)))
+                {
+                    _listaGamingProizvoda = new BindingList<GamingProizvod>(Komunikacija.Instanca.pretragaProizvoda(btn_pretraga.Text));
+                    dgv_podaci.DataSource = _listaGamingProizvoda;
+                    btn_pretraga.BackColor = Color.Green;
+                }
             }
-            //pretrazivanje proizvoda
-            if (pnl_selektovanoDugme.Location == (new Point(0, 185)))
+            catch (InvalidCastException ex)
             {
-                _listaGamingProizvoda = new BindingList<GamingProizvod>(Komunikacija.Instanca.pretragaProizvoda(btn_pretraga.Text));
-                dgv_podaci.DataSource = _listaGamingProizvoda;
-                btn_pretraga.BackColor = Color.Green;
+                MessageBox.Show("Greska sa serverom?");
+                Komunikacija.Instanca.PokreniLogin = true;
+                this.Dispose();
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Greska pri pretrazi.");               
             }
         }
 
@@ -206,24 +226,19 @@ namespace Forme
             if (Komunikacija.Instanca == null) {
                 MessageBox.Show("KOmunikacija ne postoji");
             }
-            
+            try
+            {
                 if (pnl_selektovanoDugme.Location == (new Point(0, 109)))
                 {
-                    try
+                    if (Komunikacija.Instanca == null)
                     {
-                      FrmKreirajNalog kNalog = new FrmKreirajNalog();
-                       kNalog.ShowDialog();
-
-                      KontrolerKINalog.ucitajNaloge(dgv_podaci);
-                     }
-                     catch (Exception ex)
-                    {
-                    Komunikacija.Instanca.PokreniLogin = true;
-                    this.Dispose();
-                  
-                    
-                     }
-                  }   
+                        MessageBox.Show("KOmunikacija ne postoji ###");
+                    }
+                    FrmKreirajNalog kNalog = new FrmKreirajNalog();
+                    kNalog.ShowDialog();
+                    KontrolerKINalog.ucitajNaloge(dgv_podaci);                  
+                   
+                }
                 if (pnl_selektovanoDugme.Location == new Point(0, 147))
                 {
                     FrmNarudzbenica fNar = new FrmNarudzbenica();
@@ -237,7 +252,17 @@ namespace Forme
                     kProizvod.ShowDialog();
                     KontrolerKIGamingProizvod.ucitajGamingProizvode(dgv_podaci);
                 }
-         }
+            }
+            catch (InvalidCastException ex)
+            {
+                MessageBox.Show("Greska sa serverom?");
+                Komunikacija.Instanca.PokreniLogin = true;
+                this.Dispose();
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Greska pri kreiranju!");
+            }
+        }
             
             
         
@@ -378,26 +403,19 @@ namespace Forme
             }
         }
 
-        private void obrisiNarudzbenicu()
-        {
-            throw new NotImplementedException();
-        }
-
+        
         private void btn_promeni_Click(object sender, EventArgs e)
         {
             ///U pitanju su nalozi
             if (pnl_selektovanoDugme.Location == new Point(0, 109))
             {
                 try
-                {
-                   
+                {                   
                     Osoba os = KontrolerKINalog.vratiNalogIzForme(lbl_clanskiBrojIzabranogClana,lbl_OsobaIzabranogClana,txt_imeIzabranogClana,txt_prezimeIzabranogClana,
                                                                 txt_telefonIzabranogClana,txt_emailIzbranogClana,txt_adresaIzabranogClana);
-
                     if (Komunikacija.Instanca.promeniOsobu(os))
                     {
-                        MessageBox.Show("Nalog je promenjen!");
-                        
+                        MessageBox.Show("Nalog je promenjen!");                        
                         pnl_prikazElemenata.Hide();
                         ukljuciDugmad();
                         KontrolerKINalog.ucitajNaloge(dgv_podaci);
@@ -417,20 +435,14 @@ namespace Forme
             } else if (pnl_selektovanoDugme.Location == new Point(0, 147)) {
 
                 try
-                {
-                    
-                
+                {                                
                     Narudzbenica n = vratiNarudzbenicuIzForme();
-
                     if (Komunikacija.Instanca.azurirajNarudzbenicu(n))
                     {
-
                         MessageBox.Show("Narudzbina je azurirana!");
                         pnl_narudzbenica.Hide();
                         ukljuciDugmad();
-
                         KontrolerKINarudzbenica.ucitajNarudzbenice(dgv_podaci);
-
                     }
                 }
                 catch (Exception ex)
@@ -452,7 +464,6 @@ namespace Forme
                         MessageBox.Show("Uspesno je promenjen Gaming Proizvod!");
                         pnl_izabraniGamingProizvod.Hide();
                         ukljuciDugmad();
-                        ///SMEM LI OVO OVAKO
                         KontrolerKIGamingProizvod.ucitajGamingProizvode(dgv_podaci);
                     }
                     else {
@@ -532,7 +543,7 @@ namespace Forme
             //txt_prezimeIzabranogClana.Text = n.ImePrezime.Substring(n.ImePrezime.IndexOf(" ") + 1);
             txt_telefonIzabranogClana.Text = n.osoba.Telefon;
             //TO DO EMAIL
-            txt_emailIzbranogClana.Text = "";
+            txt_emailIzbranogClana.Text = n.osoba.Email;
             txt_adresaIzabranogClana.Text = n.osoba.Adresa;
         }
 
@@ -659,62 +670,38 @@ namespace Forme
 
         private void dgv_podaci_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            if (pnl_selektovanoDugme.Location == new Point(0, 109))
+            try
             {
-
-                try
+                if (pnl_selektovanoDugme.Location == new Point(0, 109))
                 {
-                    
-                    Clan n = Komunikacija.Instanca.vratiNalogPoUslovu(((Clan)dgv_podaci.Rows[e.RowIndex].DataBoundItem).ClanskiBroj.ToString());
-
-                    KontrolerKINalog.nalog = n;
-                    KontrolerKINalog.prikazNaloga(pnl_prikazElemenata, lbl_clanskiBrojIzabranogClana, lbl_OsobaIzabranogClana, txt_imeIzabranogClana, txt_prezimeIzabranogClana,
-                        txt_telefonIzabranogClana, txt_emailIzbranogClana, txt_adresaIzabranogClana);
-                    IskljuciDugmad();
+                        Clan n = Komunikacija.Instanca.vratiNalogPoUslovu(((Clan)dgv_podaci.Rows[e.RowIndex].DataBoundItem).ClanskiBroj.ToString());
+                        KontrolerKINalog.nalog = n;
+                        KontrolerKINalog.prikazNaloga(pnl_prikazElemenata, lbl_clanskiBrojIzabranogClana, lbl_OsobaIzabranogClana, txt_imeIzabranogClana, txt_prezimeIzabranogClana,
+                            txt_telefonIzabranogClana, txt_emailIzbranogClana, txt_adresaIzabranogClana);
+                        IskljuciDugmad();
                 }
-                catch (Exception ex)
+                else if (pnl_selektovanoDugme.Location == new Point(0, 147))
                 {
+                        //Narudzbenica n = vratiNarudzbenicuIzListe(((Narudzbenica)dgv_podaci.Rows[e.RowIndex].DataBoundItem).SifraNarudzbenice);
+                        Narudzbenica na = Komunikacija.Instanca.vratiNarudzbenicu(((Narudzbenica)dgv_podaci.Rows[e.RowIndex].DataBoundItem).SifraNarudzbenice.ToString());
+                        na.Korisnik = Komunikacija.Instanca.vratiNalogPoUslovu(na.Korisnik.ClanskiBroj.ToString());
+                        Debug.WriteLine("" + na.SifraNarudzbenice);
+                        na.stavke = Komunikacija.Instanca.vratiStavkeNarudzbenice(na.SifraNarudzbenice);
+                        //pnl_narudzbenica.Show();
+                        // pnl_narudzbenica.Size = new Size(448,291);
+                        //pozoviFormuZaNarudzbenicu(na);
+                        
+                        KontrolerKINarudzbenica.narudzbenica = na;
+                        KontrolerKINarudzbenica.prikazNarudzbenice(pnl_narudzbenica, txt_ImePrezimeClanaNarudzbenica, txt_emailClanaNarudzbenica, txt_telefonClanaNarudzbenica,
+                            lbl_clanskiNalog, lbl_sifraNarudzbenice, txt_DatumODNarudzbenica, txt_datumDONarudzbenica, txt_ukupanIznos, dgv_stavkeNarudzbenice);
 
-                    MessageBox.Show("Sistem ne može da pronadje izabrani nalog");
+                        IskljuciDugmad();
+                        _listaStavkinarudzbenica = na.stavke;
                 }
-
-            }
-            else if (pnl_selektovanoDugme.Location == new Point(0, 147))
-            {
-
-                try
+                else if (pnl_selektovanoDugme.Location == new Point(0, 185))
                 {
 
-                    
 
-                    //Narudzbenica n = vratiNarudzbenicuIzListe(((Narudzbenica)dgv_podaci.Rows[e.RowIndex].DataBoundItem).SifraNarudzbenice);
-                    Narudzbenica na = Komunikacija.Instanca.vratiNarudzbenicu(((Narudzbenica)dgv_podaci.Rows[e.RowIndex].DataBoundItem).SifraNarudzbenice.ToString());
-                    na.Korisnik = Komunikacija.Instanca.vratiNalogPoUslovu(na.Korisnik.ClanskiBroj.ToString());
-                    Debug.WriteLine("" + na.SifraNarudzbenice);
-                    na.stavke = Komunikacija.Instanca.vratiStavkeNarudzbenice(na.SifraNarudzbenice);
-                    //pnl_narudzbenica.Show();
-                   // pnl_narudzbenica.Size = new Size(448,291);
-                    //pozoviFormuZaNarudzbenicu(na);
-
-                    KontrolerKINarudzbenica.narudzbenica = na;
-                    KontrolerKINarudzbenica.prikazNarudzbenice(pnl_narudzbenica, txt_ImePrezimeClanaNarudzbenica, txt_emailClanaNarudzbenica, txt_telefonClanaNarudzbenica,
-                        lbl_clanskiNalog, lbl_sifraNarudzbenice, txt_DatumODNarudzbenica, txt_datumDONarudzbenica, txt_ukupanIznos, dgv_stavkeNarudzbenice);
-
-                    IskljuciDugmad();
-                    _listaStavkinarudzbenica = na.stavke;
-                }
-                catch (Exception ex)
-                {
-
-                    MessageBox.Show("Sistem ne može da pronađe izabranu narudžbinu");
-                }
-                
-                
-            }
-            else if (pnl_selektovanoDugme.Location == new Point(0,185)) {
-
-                try
-                {
                     GamingProizvod proizvod = Komunikacija.Instanca.vratiProizvod(((GamingProizvod)dgv_podaci.Rows[e.RowIndex].DataBoundItem).proizvodID.ToString());
                     proizvod.proizvodjac = Komunikacija.Instanca.vratiProizvodjaca(proizvod.proizvodjac.ProizvodjacID.ToString());
                     KontrolerKIGamingProizvod.proizvod = proizvod;
@@ -722,14 +709,21 @@ namespace Forme
                     KontrolerKIGamingProizvod.prikazGamingProizvoda(pnl_izabraniGamingProizvod, lbl_nazivGProizvoda, lbl_modelGProizvoda, txt_cenaIzabranogGamingProizvoda, txt_karakteristikeIzabranogGamingProizvoda,
                         txt_kolicinaIzabranogGamingProizvoda, lbl_nazivProizvodjacaIzbProizvoda, txt_telefonIzabranogProizvodjac, txt_adresaIzabranogProizvodjaca, lbl_ProizvodID, lbl_proizvodjacID);
                     IskljuciDugmad();
-                    
                 }
-                catch (Exception ex)
-                {
 
-                    MessageBox.Show("Sistem ne može da nađe Gaming proizvod");
-                };
+
             }
+            catch (InvalidCastException ex) {
+                MessageBox.Show("Greska sa serverom!");
+                Komunikacija.Instanca.PokreniLogin = true;
+                this.Dispose();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Sistem ne može da pronađe odabranu stavku");
+            }
+        
         }
 
         private Narudzbenica vratiNarudzbenicuIzListe(int sifraNarudzbenice)
@@ -747,7 +741,7 @@ namespace Forme
         {
             txt_ImePrezimeClanaNarudzbenica.Text = n.Korisnik.ToString();
             //TO DO EMAIL
-            txt_emailClanaNarudzbenica.Text = "";
+            txt_emailClanaNarudzbenica.Text = n.Korisnik.osoba.Email;
             txt_telefonClanaNarudzbenica.Text = n.Korisnik.osoba.Telefon;
             lbl_clanskiNalog.Text = n.Korisnik.ClanskiBroj.ToString();
 
