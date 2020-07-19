@@ -40,12 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Nalozi\KreirajNalog.cs" />
-    <Compile Include="Nalozi\ObrisiNalog.cs" />
-    <Compile Include="Nalozi\PretraziNaloge.cs" />
-    <Compile Include="Nalozi\PromeniNalog.cs" />
-    <Compile Include="Nalozi\VratiNalog.cs" />
-    <Compile Include="Nalozi\VratiSveNaloge.cs" />
+    <Compile Include="Nalozi\KreirajClana.cs" />
+    <Compile Include="Nalozi\ObrisiClana.cs" />
+    <Compile Include="Nalozi\PretraziClanove.cs" />
+    <Compile Include="Nalozi\PromeniClana.cs" />
+    <Compile Include="Nalozi\VratiClana.cs" />
+    <Compile Include="Nalozi\VratiSveClanove.cs" />
     <Compile Include="Narudzbenice\KreirajNarudzbenicu.cs" />
     <Compile Include="Narudzbenice\ObrisiNarudzbenicu.cs" />
     <Compile Include="Narudzbenice\PretraziNarudzbenice.cs" />

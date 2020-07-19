@@ -22,7 +22,6 @@ namespace SistemskeOperacije.Zaposleni
 
             foreach (Klasa.Zaposleni zaposlen in zaposleni)
             {
-
                 zaposlen.osoba = (Klasa.Osoba)Broker.Instanca.vratiJedan(zaposlen.osoba);
             }
 

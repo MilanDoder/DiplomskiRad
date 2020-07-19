@@ -13,7 +13,8 @@ namespace SistemskeOperacije.Proizvodi
         protected override object IzvrsiKonkrentuSO(object objekat)
         {
             GamingProizvod proizvod = (GamingProizvod)objekat;
-            proizvod.proizvodID = Broker.Instanca.najveciID(proizvod) +1;
+            int id = Broker.Instanca.najveciID(proizvod);
+            proizvod.proizvodID = id == 0 ? 1 : (id + 1);
             proizvod.proizvodjac = (Proizvodjac)Broker.Instanca.vratiJedan(proizvod.proizvodjac);
 
             int uspesno = Broker.Instanca.Sacuvaj(proizvod);

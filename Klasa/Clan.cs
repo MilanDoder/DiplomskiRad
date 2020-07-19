@@ -50,7 +50,7 @@ namespace Klasa
 
         public string vratiUslov()
         {
-            return $"ClanskiBroj = '{this.ClanskiBroj}'";
+            return $"OsobaId = '{this.osoba.OsobaId}'";
         }
 
         public string vratiUslovPoNazivu()
@@ -75,7 +75,7 @@ namespace Klasa
 
         public string vratiAtributID()
         {
-            return "ClanskiBroj";
+            return "OsobaId";
         }
 
         public List<IDomenskiObjekat> vratiListu(SqlDataReader citac)

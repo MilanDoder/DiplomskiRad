@@ -22,25 +22,18 @@ namespace Klasa
 
         public IDomenskiObjekat kreirajObjekat(SqlDataReader citac)
         {
-            GamingProizvod gp = new GamingProizvod();
+            Zaposleni z = new Zaposleni();
             while (citac.Read())
             {
-
-                gp.proizvodID = (int)citac["ProizvodID"];
-                gp.Naziv = citac["Naziv"].ToString();
-                gp.karakteristike = citac["Karakteristike"].ToString();
-                gp.model = citac["Model"].ToString();
-                gp.cena = Convert.ToInt64(citac["Cena"]);
-                gp.raspolozivoStanje = (int)citac["RaspolozivaKolicina"];
-                gp.proizvodjac = new Proizvodjac
+                z.ID = (int)citac["ID"];
+                z.KorisnickoIme = citac["KorisnickoIme"].ToString();
+                z.Sifra = citac["Sifra"].ToString();
+                z.osoba = new Osoba
                 {
-                    ProizvodjacID = (int)citac["ProizvodjacID"]
+                    OsobaId = (int)citac["ID"],
                 };
-
-
-
             }
-            return gp;
+            return z;
         }
 
         public string vratiAtributID()
@@ -60,7 +53,7 @@ namespace Klasa
                     KorisnickoIme = citac["KorisnickoIme"].ToString(),
                     Sifra = citac["Sifra"].ToString(),
                     osoba =  new Osoba { 
-                        OsobaId = (int)citac["OsobaId"]
+                        OsobaId = (int)citac["ID"]
                     }
                 };
 

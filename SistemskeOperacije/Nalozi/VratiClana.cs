@@ -8,16 +8,15 @@ using System.Threading.Tasks;
 
 namespace SistemskeOperacije.Nalozi
 {
-    public class PromeniNalog : SistemskeOperacijeOpsta
+    public class VratiClana : SistemskeOperacijeOpsta
     {
         protected override object IzvrsiKonkrentuSO(object objekat)
         {
-            int uspesno = Broker.Instanca.Promeni((Clan) objekat);
-            if (uspesno == 1)
-            {
-                return true;
-            }
-            return false;
+            Clan n = (Clan)Broker.Instanca.vratiObjekat(new Clan(), objekat.ToString());
+
+            n.osoba = (Klasa.Osoba)Broker.Instanca.vratiObjekat(new Klasa.Osoba(), n.osoba.OsobaId.ToString());
+            return n;
+
         }
 
        

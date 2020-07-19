@@ -28,7 +28,10 @@ namespace Klasa
                 n.SifraNarudzbenice = (int)citac["SifraNarudzbenice"];
                 n.UkupanIznos = Convert.ToInt64(citac["UkupanIznos"]);
                 n.Korisnik = new Clan {
-                    ClanskiBroj = (int)citac["SifraClana"]
+                    osoba = new Osoba
+                    {
+                        OsobaId = (int)citac["SifraClana"]
+                    }
                 };
                 n.stavke = new List<StavkaNarudzbenice>();
 
@@ -61,7 +64,9 @@ namespace Klasa
                     DatumOd = (DateTime)komanda["DatumOd"],
                     UkupanIznos = Convert.ToInt64( komanda["UkupanIznos"]),
                     Korisnik = new Clan {
-                        ClanskiBroj = (int) komanda["SifraClana"]
+                        osoba = new Osoba { 
+                            OsobaId = (int)komanda["SifraClana"]
+                        }
                     } ,
                 };
                 _lista.Add(n);
@@ -86,7 +91,7 @@ namespace Klasa
 
         public string vratiVrednostZaInsert()
         {
-            return $"'{this.DatumOd}', '{this.DatumDo}', '{this.UkupanIznos}', '{this.Korisnik.ClanskiBroj}'";
+            return $"'{this.DatumOd}', '{this.DatumDo}', '{this.UkupanIznos}', '{this.Korisnik.osoba.OsobaId}'";
         }
 
         public string vratiVrednostZaUpdate()

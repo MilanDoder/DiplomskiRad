@@ -206,7 +206,12 @@ namespace BrokerBazePodataka
 
                 komanda.CommandText = query;
                 var rezultat = komanda.ExecuteScalar();
-
+                try {
+                    rezultat = (int)rezultat;
+                }
+                catch (Exception e ){
+                    rezultat = 0;
+                }
                 return (int)rezultat;
 
             }

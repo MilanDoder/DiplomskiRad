@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SistemskeOperacije.Nalozi
 {
-    public class ObrisiNalog : SistemskeOperacijeOpsta
+    public class ObrisiClana : SistemskeOperacijeOpsta
     {
         protected override object IzvrsiKonkrentuSO(object objekat)
         {

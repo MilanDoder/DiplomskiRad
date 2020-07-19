@@ -52,17 +52,17 @@ namespace Kontroler
           
                     //NALOG
                 case Operacija.UbaciNalog:
-                    return new KreirajNalog();
+                    return new KreirajClana();
                 case Operacija.PromeniNalog:
-                    return new PromeniNalog();
+                    return new PromeniClana();
                 case Operacija.ObrisiNalog:
-                    return new ObrisiNalog();
+                    return new ObrisiClana();
                 case Operacija.VratiSveNaloge:
-                    return new VratiSveNaloge();
+                    return new VratiSveClanove();
                 case Operacija.VratiNalog:
-                    return new VratiNalog();
+                    return new VratiClana();
                 case Operacija.PretraziNalog:
-                    return new PretraziNaloge();
+                    return new PretraziClanove();
                 
                     //PROIZVOD
                 case Operacija.KreirajProizvod:

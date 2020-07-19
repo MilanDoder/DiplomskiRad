@@ -8,12 +8,11 @@ using System.Threading.Tasks;
 
 namespace SistemskeOperacije.Nalozi
 {
-    public class PretraziNaloge : SistemskeOperacijeOpsta
+    public class VratiSveClanove : SistemskeOperacijeOpsta
     {
         protected override object IzvrsiKonkrentuSO(object objekat)
         {
-
-            List<IDomenskiObjekat> Nalozi = Broker.Instanca.pretragaObjekta(new Clan(), objekat.ToString());
+            List<IDomenskiObjekat> Nalozi = Broker.Instanca.vratiSve(new Clan());
 
 
             List<Clan> listaNaloga = Nalozi.Cast<Clan>().ToList();
@@ -27,5 +26,6 @@ namespace SistemskeOperacije.Nalozi
             return listaNaloga;
         }
 
+        
     }
 }
