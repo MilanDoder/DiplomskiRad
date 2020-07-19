@@ -153,8 +153,8 @@ namespace BrokerBazePodataka
             SqlDataReader citac = null;
             //Pomoc za transakcije !!!
             SqlCommand komanda = new SqlCommand("", konekcija, transakcija);
-
-            string upit = $"Select  * From {domenskiObjekat.vratiNazivTabele()} Where {domenskiObjekat.vratiUslov()} OR {domenskiObjekat.vratiUslovPoNazivu()}";
+           
+            string upit = $"Select  * From {domenskiObjekat.vratiNazivTabele()} Where  {domenskiObjekat.vratiUslov()} OR {domenskiObjekat.vratiUslovPoNazivu()}";
             komanda.CommandText = upit;
 
             //ovo je umesto try finnalu bloka!!!

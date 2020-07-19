@@ -14,3 +14,12 @@ C:\Users\a760876\source\repos\DR-Softveri\DiplomskiRad\BrokerBazePodataka\obj\De
 C:\Users\a760876\source\repos\DR-Softveri\DiplomskiRad\BrokerBazePodataka\obj\Debug\BrokerBazePodataka.csproj.CopyComplete
 C:\Users\a760876\source\repos\DR-Softveri\DiplomskiRad\BrokerBazePodataka\obj\Debug\BrokerBazePodataka.dll
 C:\Users\a760876\source\repos\DR-Softveri\DiplomskiRad\BrokerBazePodataka\obj\Debug\BrokerBazePodataka.pdb
+C:\Users\a760876\source\repos\TestDiplomski\DiplomskiRad\BrokerBazePodataka\bin\Debug\BrokerBazePodataka.dll
+C:\Users\a760876\source\repos\TestDiplomski\DiplomskiRad\BrokerBazePodataka\bin\Debug\BrokerBazePodataka.pdb
+C:\Users\a760876\source\repos\TestDiplomski\DiplomskiRad\BrokerBazePodataka\bin\Debug\Klasa.dll
+C:\Users\a760876\source\repos\TestDiplomski\DiplomskiRad\BrokerBazePodataka\bin\Debug\Klasa.pdb
+C:\Users\a760876\source\repos\TestDiplomski\DiplomskiRad\BrokerBazePodataka\obj\Debug\BrokerBazePodataka.csprojAssemblyReference.cache
+C:\Users\a760876\source\repos\TestDiplomski\DiplomskiRad\BrokerBazePodataka\obj\Debug\BrokerBazePodataka.csproj.CoreCompileInputs.cache
+C:\Users\a760876\source\repos\TestDiplomski\DiplomskiRad\BrokerBazePodataka\obj\Debug\BrokerBazePodataka.csproj.CopyComplete
+C:\Users\a760876\source\repos\TestDiplomski\DiplomskiRad\BrokerBazePodataka\obj\Debug\BrokerBazePodataka.dll
+C:\Users\a760876\source\repos\TestDiplomski\DiplomskiRad\BrokerBazePodataka\obj\Debug\BrokerBazePodataka.pdb

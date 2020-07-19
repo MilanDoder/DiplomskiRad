@@ -50,6 +50,8 @@ namespace Klasa
 
         public string vratiUslov()
         {
+            if(this.osoba ==null)
+                return $"ClanskiBroj = '{this.ClanskiBroj}'";
             return $"OsobaId = '{this.osoba.OsobaId}'";
         }
 

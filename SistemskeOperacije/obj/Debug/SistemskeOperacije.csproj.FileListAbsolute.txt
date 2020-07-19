@@ -22,3 +22,16 @@ C:\Users\a760876\source\repos\DR-Softveri\DiplomskiRad\SistemskeOperacije\obj\De
 C:\Users\a760876\source\repos\DR-Softveri\DiplomskiRad\SistemskeOperacije\obj\Debug\SistemskeOperacije.csproj.CopyComplete
 C:\Users\a760876\source\repos\DR-Softveri\DiplomskiRad\SistemskeOperacije\obj\Debug\SistemskeOperacije.dll
 C:\Users\a760876\source\repos\DR-Softveri\DiplomskiRad\SistemskeOperacije\obj\Debug\SistemskeOperacije.pdb
+C:\Users\a760876\source\repos\TestDiplomski\DiplomskiRad\SistemskeOperacije\bin\Debug\SistemskeOperacije.dll
+C:\Users\a760876\source\repos\TestDiplomski\DiplomskiRad\SistemskeOperacije\bin\Debug\SistemskeOperacije.pdb
+C:\Users\a760876\source\repos\TestDiplomski\DiplomskiRad\SistemskeOperacije\bin\Debug\BazaZaposlenih.dll
+C:\Users\a760876\source\repos\TestDiplomski\DiplomskiRad\SistemskeOperacije\bin\Debug\BrokerBazePodataka.dll
+C:\Users\a760876\source\repos\TestDiplomski\DiplomskiRad\SistemskeOperacije\bin\Debug\Klasa.dll
+C:\Users\a760876\source\repos\TestDiplomski\DiplomskiRad\SistemskeOperacije\bin\Debug\BazaZaposlenih.pdb
+C:\Users\a760876\source\repos\TestDiplomski\DiplomskiRad\SistemskeOperacije\bin\Debug\BrokerBazePodataka.pdb
+C:\Users\a760876\source\repos\TestDiplomski\DiplomskiRad\SistemskeOperacije\bin\Debug\Klasa.pdb
+C:\Users\a760876\source\repos\TestDiplomski\DiplomskiRad\SistemskeOperacije\obj\Debug\SistemskeOperacije.csprojAssemblyReference.cache
+C:\Users\a760876\source\repos\TestDiplomski\DiplomskiRad\SistemskeOperacije\obj\Debug\SistemskeOperacije.csproj.CoreCompileInputs.cache
+C:\Users\a760876\source\repos\TestDiplomski\DiplomskiRad\SistemskeOperacije\obj\Debug\SistemskeOperacije.csproj.CopyComplete
+C:\Users\a760876\source\repos\TestDiplomski\DiplomskiRad\SistemskeOperacije\obj\Debug\SistemskeOperacije.dll
+C:\Users\a760876\source\repos\TestDiplomski\DiplomskiRad\SistemskeOperacije\obj\Debug\SistemskeOperacije.pdb
